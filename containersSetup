@@ -1,0 +1,21 @@
+Docker Containers Setup
+
+cd ~/.ssh
+ssh-keygen -t rsa -b 4096
+cat id_rsa.pub
+
+Add remote connection
+root - 9...@E...
+
+mkdir apache
+touch Dockerfile
+nano Dockerfile 
+-------------
+FROM ubuntu:16.04
+MAINTAINER bst259@nyu.edu
+RUN apt-get -y update && apt-get -y upgrade
+RUN apt-get -y install apache2
+EXPOSE 80
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+------------------
+docker build -t apacheimage:0.1 .
