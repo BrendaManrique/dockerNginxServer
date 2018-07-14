@@ -1,0 +1,45 @@
+Docker Containers Setup
+
+cd ~/.ssh
+ssh-keygen -t rsa -b 4096
+cat id_rsa.pub
+
+======================================
+DOCKER COMMANDS
+docker rm wp_container
+docker ps -a
+docker stop wp_container
+docker logs <containerID>
+docker exec -it <containerID> /bin/bash
+docker build //Image, where Dockerfile is located
+docker compose //Container with docker-compose.yml
+
+=======================================
+NODEJS IMAGE
+cd ..
+mkdir nodejs
+cd nodejs
+nano Dockerfile
+--------------------
+FROM node:8
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copi$
+# where available (npm@5+)
+COPY package*.json ./
+
+RUN npm install
+# If you are building your code for production
+# RUN npm install --only=production
+
+# Bundle app source
+COPY . .
+
+EXPOSE 8000
+CMD [ "npm", "start" ]
+------------------------
+docker build -t nodejsimage:0.1 .
+
