@@ -5,6 +5,7 @@ ssh-keygen -t rsa -b 4096
 cat id_rsa.pub
 
 ======================================
+======================================
 DOCKER COMMANDS
 docker rm wp_container
 docker ps -a
@@ -15,6 +16,7 @@ docker build //Image, where Dockerfile is located
 docker compose //Container with docker-compose.yml
 
 =======================================
+======================================
 NODEJS IMAGE
 cd ..
 mkdir nodejs
